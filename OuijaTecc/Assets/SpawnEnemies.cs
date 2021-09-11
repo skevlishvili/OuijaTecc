@@ -24,7 +24,7 @@ public class SpawnEnemies : MonoBehaviour
             var degrees = Random.Range(0, 72)*5;
             var x = distance*Mathf.Cos((degrees * Mathf.PI)/180);
             var y = distance*Mathf.Sin((degrees * Mathf.PI)/180);
-            var prefab  = Instantiate(enemy, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
+            var prefab  = Instantiate(enemy, new Vector3(x, y, 0), Quaternion.Euler(0, 0, degrees-90)) as GameObject;
             var EnemyBehavior = (EnemyBehavior)prefab.GetComponent("EnemyBehavior");
             int addedSpeed = speedBuildUp/100;
             EnemyBehavior.Speed = initialEnemySpeed + (float)addedSpeed/100;
